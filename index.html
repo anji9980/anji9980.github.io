@@ -165,7 +165,7 @@
             flex: 2;
         }
 
-        /* Experience Section */
+        /* Modified Experience Section - All cards on the same side */
         .timeline {
             position: relative;
             max-width: 1200px;
@@ -179,16 +179,18 @@
             background-color: var(--primary-color);
             top: 0;
             bottom: 0;
-            left: 50%;
-            margin-left: -2px;
+            left: 0;
+            margin-left: 31px;
         }
 
         .timeline-item {
-            padding: 10px 40px;
+            padding: 10px 40px 10px 70px;
             position: relative;
-            width: 50%;
+            width: calc(100% - 70px);
+            margin-left: 70px;
             background-color: inherit;
             box-sizing: border-box;
+            margin-bottom: 20px;
         }
 
         .timeline-item::after {
@@ -196,7 +198,7 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            right: -12px;
+            left: -10px;
             background-color: white;
             border: 4px solid var(--primary-color);
             top: 15px;
@@ -204,39 +206,14 @@
             z-index: 1;
         }
 
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .right::after {
-            left: -12px;
-        }
-
-        .left::before {
+        .timeline-item::before {
             content: " ";
             height: 0;
             position: absolute;
             top: 22px;
             width: 0;
             z-index: 1;
-            right: 25px;
-            border: medium solid white;
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent white;
-        }
-
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 25px;
+            left: 10px;
             border: medium solid white;
             border-width: 10px 10px 10px 0;
             border-color: transparent white transparent transparent;
@@ -505,30 +482,6 @@
                 font-size: 2rem;
             }
 
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 20px;
-            }
-
-            .timeline-item::after {
-                left: 18px;
-            }
-
-            .left::before, .right::before {
-                left: 60px;
-                border-width: 10px 10px 10px 0;
-                border-color: transparent white transparent transparent;
-            }
-
-            .right {
-                left: 0;
-            }
-
             .about-content {
                 flex-direction: column;
                 text-align: center;
@@ -604,7 +557,6 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
-<!--                 <li><a href="#contact">Contact</a></li> -->
             </ul>
         </div>
     </nav>
@@ -616,7 +568,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-img">
-                    <img src="porfile.jpeg" alt="About Anji Rontala" style="width: 100%; border-radius: 8px; box-shadow: var(--box-shadow);">
+                    <img src="profile.jpeg" alt="About Anji Rontala" style="width: 100%; border-radius: 8px; box-shadow: var(--box-shadow);">
                 </div>
                 <div class="about-text">
                     <p>Hi, I'm Anji Rontala, a Graduate AI Engineer and Java Backend Developer with a B.Tech in Engineering Science from IIT Hyderabad. I specialize in developing enterprise-grade applications with a focus on AI integration, data security, and efficient backend solutions.</p>
@@ -630,7 +582,7 @@
         <section id="experience">
             <h2 class="section-title">Work Experience</h2>
             <div class="timeline">
-                <div class="timeline-item left">
+                <div class="timeline-item">
                     <div class="experience-card">
                         <div class="experience-title">
                             <span class="company-name">Turium.ai</span>
@@ -648,7 +600,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item right">
+                <div class="timeline-item">
                     <div class="experience-card">
                         <div class="experience-title">
                             <span class="company-name">Clouddefense.ai</span>
@@ -803,8 +755,8 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/anji-rontala" class="social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/anji-rontala" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/anji-rontala-80a1b4253/" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/anji9980" class="social-link"><i class="fab fa-github"></i></a>
             <a href="mailto:anji9980@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
         </div>
         <p class="footer-text">&copy; 2025 Anji Rontala. All rights reserved.</p>
@@ -828,18 +780,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            
-            // This is a placeholder for actual form submission
-            // In a real implementation, you would send this data to a server
-            alert('Message sent! Thank you for contacting me.');
-            contactForm.reset();
         });
     </script>
 </body>
