@@ -157,8 +157,16 @@
         }
 
         .about-img {
-            flex: 1;
-            min-width: 300px;
+            flex: 0 0 250px;
+            max-width: 250px;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: var(--box-shadow);
         }
 
         .about-text {
@@ -286,10 +294,19 @@
             transform: translateY(-5px);
         }
 
-        .project-img {
+        .project-img-container {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
+            height: 120px;
+            background-color: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .project-icon {
+            font-size: 50px;
+            color: var(--primary-color);
         }
 
         .project-info {
@@ -525,7 +542,7 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-<!--             <img src="profile.jpeg" alt="Anji Rontala" class="profile-img"> -->
+            <img src="profile.jpeg" alt="Anji Rontala" class="profile-img">
             <h1 class="name">Anji Rontala</h1>
             <p class="title">Graduate AI Engineer | Java Backend Developer</p>
             <div class="contact-info">
@@ -568,7 +585,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-img">
-                    <img src="profile.jpeg" alt="About Anji Rontala" style="width: 100%; border-radius: 8px; box-shadow: var(--box-shadow);">
+                    <img src="profile.jpeg" alt="About Anji Rontala">
                 </div>
                 <div class="about-text">
                     <p>Hi, I'm Anji Rontala, a Graduate AI Engineer and Java Backend Developer with a B.Tech in Engineering Science from IIT Hyderabad. I specialize in developing enterprise-grade applications with a focus on AI integration, data security, and efficient backend solutions.</p>
@@ -622,7 +639,9 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="/api/placeholder/400/200" alt="Sports Management Website" class="project-img">
+                    <div class="project-img-container">
+                        <i class="fas fa-dumbbell project-icon"></i>
+                    </div>
                     <div class="project-info">
                         <h3 class="project-title">Institute Sports Management Website</h3>
                         <p class="project-date">Jan 2023 - May 2023</p>
@@ -639,7 +658,9 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="/api/placeholder/400/200" alt="Research Papers Database" class="project-img">
+                    <div class="project-img-container">
+                        <i class="fas fa-database project-icon"></i>
+                    </div>
                     <div class="project-info">
                         <h3 class="project-title">Management of Scientific Research Papers Database</h3>
                         <p class="project-date">Jan 2022 - May 2022</p>
@@ -655,7 +676,9 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="/api/placeholder/400/200" alt="House Price Prediction" class="project-img">
+                    <div class="project-img-container">
+                        <i class="fas fa-chart-line project-icon"></i>
+                    </div>
                     <div class="project-info">
                         <h3 class="project-title">House Price Prediction</h3>
                         <p class="project-date">May 2023 - Jul 2023</p>
@@ -755,8 +778,8 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/anji-rontala-80a1b4253/" class="social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/anji9980" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/anji-rontala" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/anji-rontala" class="social-link"><i class="fab fa-github"></i></a>
             <a href="mailto:anji9980@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
         </div>
         <p class="footer-text">&copy; 2025 Anji Rontala. All rights reserved.</p>
