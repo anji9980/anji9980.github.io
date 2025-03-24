@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Anji Rontala - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -178,6 +178,7 @@
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
+            padding-left: 40px;
         }
 
         .timeline::after {
@@ -187,18 +188,16 @@
             background-color: var(--primary-color);
             top: 0;
             bottom: 0;
-            left: 0;
-            margin-left: 31px;
+            left: 20px;
         }
 
         .timeline-item {
-            padding: 10px 40px 10px 70px;
+            padding: 10px 20px;
             position: relative;
-            width: calc(100% - 70px);
-            margin-left: 70px;
             background-color: inherit;
+            width: 100%;
             box-sizing: border-box;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .timeline-item::after {
@@ -206,25 +205,12 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            left: -10px;
+            left: -30px;
             background-color: white;
             border: 4px solid var(--primary-color);
             top: 15px;
             border-radius: 50%;
             z-index: 1;
-        }
-
-        .timeline-item::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 10px;
-            border: medium solid white;
-            border-width: 10px 10px 10px 0;
-            border-color: transparent white transparent transparent;
         }
 
         .experience-card {
@@ -303,7 +289,7 @@
             justify-content: center;
             overflow: hidden;
         }
-        
+
         .project-icon {
             font-size: 50px;
             color: var(--primary-color);
@@ -494,6 +480,23 @@
         }
 
         /* Responsive Design */
+        @media screen and (max-width: 1200px) {
+            main, .header-content, .nav-container {
+                max-width: 95%;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .name {
                 font-size: 2rem;
@@ -501,11 +504,28 @@
 
             .about-content {
                 flex-direction: column;
-                text-align: center;
+                align-items: center;
+                gap: 1.5rem;
             }
 
             .about-img {
-                min-width: auto;
+                max-width: 200px;
+            }
+
+            .about-img img {
+                height: 200px;
+            }
+
+            .about-text {
+                text-align: center;
+            }
+
+            .project-img-container {
+                height: 100px;
+            }
+
+            .project-icon {
+                font-size: 45px;
             }
 
             .contact-info {
@@ -535,275 +555,337 @@
             .nav-links li {
                 text-align: center;
             }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Mobile timeline fixes */
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline::after {
+                left: 15px;
+            }
+
+            .timeline-item {
+                padding: 0 15px;
+            }
+
+            .timeline-item::after {
+                left: -22px;
+                width: 15px;
+                height: 15px;
+            }
+
+            .experience-card {
+                padding: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .name {
+                font-size: 1.75rem;
+            }
+
+            .title {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .about-img {
+                max-width: 150px;
+            }
+
+            .about-img img {
+                height: 150px;
+            }
+
+            .project-title {
+                font-size: 1.1rem;
+            }
+
+            .technologies {
+                gap: 0.3rem;
+            }
+
+            .technology {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-<!--             <img src="profile.jpg" alt="Anji Rontala" class="profile-img"> -->
-            <h1 class="name">Anji Rontala</h1>
-            <p class="title">Graduate AI Engineer | Java Backend Developer</p>
-            <div class="contact-info">
-                <a href="mailto:anji9980@gmail.com" class="contact-item">
-                    <i class="fas fa-envelope"></i> anji9980@gmail.com
-                </a>
-                <a href="tel:+919652602347" class="contact-item">
-                    <i class="fas fa-phone"></i> +91 9652602347
-                </a>
-                <a href="https://www.linkedin.com/in/anji-rontala" class="contact-item">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://github.com/anji-rontala" class="contact-item">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+<!-- Header -->
+<header>
+    <div class="header-content">
+<!--         <img src="profile.jpeg" alt="Anji Rontala" class="profile-img"> -->
+        <h1 class="name">Anji Rontala</h1>
+        <p class="title">Graduate AI Engineer | Java Backend Developer</p>
+        <div class="contact-info">
+            <a href="mailto:anji9980@gmail.com" class="contact-item">
+                <i class="fas fa-envelope"></i> anji9980@gmail.com
+            </a>
+            <a href="tel:+919652602347" class="contact-item">
+                <i class="fas fa-phone"></i> +91 9652602347
+            </a>
+            <a href="https://www.linkedin.com/in/anji-rontala" class="contact-item">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/anji-rontala" class="contact-item">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-container">
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main>
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="profile.jpeg" alt="About Anji Rontala">
+            </div>
+            <div class="about-text">
+                <p>Hi, I'm Anji Rontala, a Graduate AI Engineer and Java Backend Developer with a B.Tech in Engineering Science from IIT Hyderabad. I specialize in developing enterprise-grade applications with a focus on AI integration, data security, and efficient backend solutions.</p>
+                <p>My expertise includes Java Spring Boot development, database management (ClickHouse, PostgreSQL), cloud technologies (AWS), and AI implementation using OpenAI APIs. I'm passionate about creating scalable and secure solutions that solve real-world problems.</p>
+                <p>With experience in both startup and enterprise environments, I've developed skills in building RESTful APIs, implementing security protocols, and optimizing system performance. I'm constantly learning and exploring new technologies to enhance my skillset.</p>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-            </ul>
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-title">
+                        <span class="company-name">Turium.ai</span>
+                        <span class="date">June 2024 - Present</span>
+                    </div>
+                    <h3 class="job-title">Graduate AI Engineer</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+                    <ul class="responsibilities">
+                        <li>Implemented row-level and column-level security policies for ClickHouse Database in Turium Algogovernance (Apache Ranger), deployed and maintained the application on AWS EC2, reducing downtime by 30% through proactive bug fixes.</li>
+                        <li>Integrated SSO using Keycloak with OpenID and configured Role-Based Access Control for enterprise security compliance.</li>
+                        <li>Enhanced Turium Analytics (Apache Superset) with AI-powered chart summarization using OpenAI API, reducing data interpretation time by 40% for business users.</li>
+                        <li>Optimized API costs and latency by 70% through intelligent response caching for AI-generated content using hashing methods.</li>
+                        <li>Architected and implemented an enterprise-grade data transformation Tool for Turium Mapper with RESTful Spring Boot APIs, enabling seamless conversion between JSON, CSV, and XML formats.</li>
+                        <li>Built proof-of-concept for real-time data Sync from PostgreSQL to ClickHouse using Debezium and Kafka, enabling cross-platform data integration.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-title">
+                        <span class="company-name">Clouddefense.ai</span>
+                        <span class="date">Feb 2024 - May 2024</span>
+                    </div>
+                    <h3 class="job-title">Java Backend Developer, Internship</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Remote, Palo Alto, US</p>
+                    <ul class="responsibilities">
+                        <li>Designed and implemented multiple RESTful APIs with Spring Boot for compliance tracking and cloud account management (Azure/GCP), incorporating DTOs for data validation and added pagination.</li>
+                        <li>Automated testing using Python and Unit testing, improving code coverage by 35% and reducing regression bugs.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </nav>
+    </section>
 
-    <!-- Main Content -->
-    <main>
-        <!-- About Section -->
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="profile.jpg" alt="About Anji Rontala">
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img-container">
+                    <i class="fas fa-dumbbell project-icon"></i>
                 </div>
-                <div class="about-text">
-                    <p>Hi, I'm Anji Rontala, a Graduate AI Engineer and Java Backend Developer with a B.Tech in Engineering Science from IIT Hyderabad. I specialize in developing enterprise-grade applications with a focus on AI integration, data security, and efficient backend solutions.</p>
-                    <p>My expertise includes Java Spring Boot development, database management (ClickHouse, PostgreSQL), cloud technologies (AWS), and AI implementation using OpenAI APIs. I'm passionate about creating scalable and secure solutions that solve real-world problems.</p>
-                    <p>With experience in both startup and enterprise environments, I've developed skills in building RESTful APIs, implementing security protocols, and optimizing system performance. I'm constantly learning and exploring new technologies to enhance my skillset.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="experience-card">
-                        <div class="experience-title">
-                            <span class="company-name">Turium.ai</span>
-                            <span class="date">June 2024 - Present</span>
-                        </div>
-                        <h3 class="job-title">Graduate AI Engineer</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
-                        <ul class="responsibilities">
-                            <li>Implemented row-level and column-level security policies for ClickHouse Database in Turium Algogovernance (Apache Ranger), deployed and maintained the application on AWS EC2, reducing downtime by 30% through proactive bug fixes.</li>
-                            <li>Integrated SSO using Keycloak with OpenID and configured Role-Based Access Control for enterprise security compliance.</li>
-                            <li>Enhanced Turium Analytics (Apache Superset) with AI-powered chart summarization using OpenAI API, reducing data interpretation time by 40% for business users.</li>
-                            <li>Optimized API costs and latency by 70% through intelligent response caching for AI-generated content using hashing methods.</li>
-                            <li>Architected and implemented an enterprise-grade data transformation Tool for Turium Mapper with RESTful Spring Boot APIs, enabling seamless conversion between JSON, CSV, and XML formats.</li>
-                            <li>Built proof-of-concept for real-time data Sync from PostgreSQL to ClickHouse using Debezium and Kafka, enabling cross-platform data integration.</li>
-                        </ul>
+                <div class="project-info">
+                    <h3 class="project-title">Institute Sports Management Website</h3>
+                    <p class="project-date">Jan 2023 - May 2023</p>
+                    <div class="project-description">
+                        <p>Developed a web application for sports management with RESTful APIs using Spring Boot and React frontend. Implemented data persistence with Spring Data JPA and PostgreSQL, ensuring data integrity and scalability.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="experience-card">
-                        <div class="experience-title">
-                            <span class="company-name">Clouddefense.ai</span>
-                            <span class="date">Feb 2024 - May 2024</span>
-                        </div>
-                        <h3 class="job-title">Java Backend Developer, Internship</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Remote, Palo Alto, US</p>
-                        <ul class="responsibilities">
-                            <li>Designed and implemented multiple RESTful APIs with Spring Boot for compliance tracking and cloud account management (Azure/GCP), incorporating DTOs for data validation and added pagination.</li>
-                            <li>Automated testing using Python and Unit testing, improving code coverage by 35% and reducing regression bugs.</li>
-                        </ul>
+                    <div class="technologies">
+                        <span class="technology">Java</span>
+                        <span class="technology">Spring Boot</span>
+                        <span class="technology">React</span>
+                        <span class="technology">JPA/Hibernate</span>
+                        <span class="technology">REST API</span>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img-container">
-                        <i class="fas fa-dumbbell project-icon"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Institute Sports Management Website</h3>
-                        <p class="project-date">Jan 2023 - May 2023</p>
-                        <div class="project-description">
-                            <p>Developed a web application for sports management with RESTful APIs using Spring Boot and React frontend. Implemented data persistence with Spring Data JPA and PostgreSQL, ensuring data integrity and scalability.</p>
-                        </div>
-                        <div class="technologies">
-                            <span class="technology">Java</span>
-                            <span class="technology">Spring Boot</span>
-                            <span class="technology">React</span>
-                            <span class="technology">JPA/Hibernate</span>
-                            <span class="technology">REST API</span>
-                        </div>
-                    </div>
+            <div class="project-card">
+                <div class="project-img-container">
+                    <i class="fas fa-database project-icon"></i>
                 </div>
-                <div class="project-card">
-                    <div class="project-img-container">
-                        <i class="fas fa-database project-icon"></i>
+                <div class="project-info">
+                    <h3 class="project-title">Management of Scientific Research Papers Database</h3>
+                    <p class="project-date">Jan 2022 - May 2022</p>
+                    <div class="project-description">
+                        <p>Built a relational database from scratch and populated it with information about research papers. Parsed a large CSV with 600,000 entries and stored them in the database through ODBC (psycopg2).</p>
                     </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Management of Scientific Research Papers Database</h3>
-                        <p class="project-date">Jan 2022 - May 2022</p>
-                        <div class="project-description">
-                            <p>Built a relational database from scratch and populated it with information about research papers. Parsed a large CSV with 600,000 entries and stored them in the database through ODBC (psycopg2).</p>
-                        </div>
-                        <div class="technologies">
-                            <span class="technology">PostgreSQL</span>
-                            <span class="technology">Python</span>
-                            <span class="technology">SQL optimization</span>
-                            <span class="technology">Database schema design</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img-container">
-                        <i class="fas fa-chart-line project-icon"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">House Price Prediction</h3>
-                        <p class="project-date">May 2023 - Jul 2023</p>
-                        <div class="project-description">
-                            <p>Built ML models for real estate price prediction using Random Forest and Gradient Boosting with K-Fold cross-validation. Utilized Grid Search CV to enhance model reliability and Hyperparameter tuning. Processed 13,000 property records with feature engineering, achieving 85% prediction accuracy, deployed via Flask.</p>
-                        </div>
-                        <div class="technologies">
-                            <span class="technology">Scikit-learn</span>
-                            <span class="technology">Pandas</span>
-                            <span class="technology">Flask</span>
-                            <span class="technology">Feature engineering</span>
-                            <span class="technology">Hyperparameter optimization</span>
-                        </div>
+                    <div class="technologies">
+                        <span class="technology">PostgreSQL</span>
+                        <span class="technology">Python</span>
+                        <span class="technology">SQL optimization</span>
+                        <span class="technology">Database schema design</span>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 class="category-title">Languages</h3>
-                    <ul class="skill-list">
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <li>C++</li>
-                        <li>SQL</li>
-                        <li>HTML/CSS</li>
-                    </ul>
+            <div class="project-card">
+                <div class="project-img-container">
+                    <i class="fas fa-chart-line project-icon"></i>
                 </div>
-                <div class="skill-category">
-                    <h3 class="category-title">Frameworks & Libraries</h3>
-                    <ul class="skill-list">
-                        <li>Spring Boot</li>
-                        <li>Spring Data JPA</li>
-                        <li>Flask</li>
-                        <li>React</li>
-                        <li>Pandas</li>
-                        <li>NumPy</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3 class="category-title">Data & Cloud</h3>
-                    <ul class="skill-list">
-                        <li>AWS EC2</li>
-                        <li>Kafka</li>
-                        <li>ClickHouse</li>
-                        <li>PostgreSQL</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3 class="category-title">DevOps & Security</h3>
-                    <ul class="skill-list">
-                        <li>Docker</li>
-                        <li>Git</li>
-                        <li>Keycloak</li>
-                        <li>RESTful APIs</li>
-                        <li>OAuth2</li>
-                        <li>OpenID Connect</li>
-                        <li>SSO/RBAC</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3 class="category-title">AI/ML</h3>
-                    <ul class="skill-list">
-                        <li>Deep Learning</li>
-                        <li>OpenAI API</li>
-                        <li>Data visualization</li>
-                        <li>Feature engineering</li>
-                    </ul>
+                <div class="project-info">
+                    <h3 class="project-title">House Price Prediction</h3>
+                    <p class="project-date">May 2023 - Jul 2023</p>
+                    <div class="project-description">
+                        <p>Built ML models for real estate price prediction using Random Forest and Gradient Boosting with K-Fold cross-validation. Utilized Grid Search CV to enhance model reliability and Hyperparameter tuning. Processed 13,000 property records with feature engineering, achieving 85% prediction accuracy, deployed via Flask.</p>
+                    </div>
+                    <div class="technologies">
+                        <span class="technology">Scikit-learn</span>
+                        <span class="technology">Pandas</span>
+                        <span class="technology">Flask</span>
+                        <span class="technology">Feature engineering</span>
+                        <span class="technology">Hyperparameter optimization</span>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <div class="education-card">
-                <h3 class="degree">B.Tech in Engineering Science</h3>
-                <div class="university">
-                    <p class="university-name">Indian Institute of Technology Hyderabad, (IIT-H)</p>
-                    <p class="date">Nov 2020 - May 2024</p>
-                </div>
-                <p class="grades">Grade: 7.60</p>
-                <div class="courses">
-                    <h4>Relevant Courses:</h4>
-                    <p>Data Structures and Algorithms, Database Management Systems, Operating Systems, Computer Networks, Deep Learning, Software Engineering</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/anji-rontala" class="social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/anji-rontala" class="social-link"><i class="fab fa-github"></i></a>
-            <a href="mailto:anji9980@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
         </div>
-        <p class="footer-text">&copy; 2025 Anji Rontala. All rights reserved.</p>
-    </footer>
+    </section>
 
-    <script>
-        // Mobile Navigation
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3 class="category-title">Languages</h3>
+                <ul class="skill-list">
+                    <li>Java</li>
+                    <li>Python</li>
+                    <li>JavaScript</li>
+                    <li>C++</li>
+                    <li>SQL</li>
+                    <li>HTML/CSS</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3 class="category-title">Frameworks & Libraries</h3>
+                <ul class="skill-list">
+                    <li>Spring Boot</li>
+                    <li>Spring Data JPA</li>
+                    <li>Flask</li>
+                    <li>React</li>
+                    <li>Pandas</li>
+                    <li>NumPy</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3 class="category-title">Data & Cloud</h3>
+                <ul class="skill-list">
+                    <li>AWS EC2</li>
+                    <li>Kafka</li>
+                    <li>ClickHouse</li>
+                    <li>PostgreSQL</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3 class="category-title">DevOps & Security</h3>
+                <ul class="skill-list">
+                    <li>Docker</li>
+                    <li>Git</li>
+                    <li>Keycloak</li>
+                    <li>RESTful APIs</li>
+                    <li>OAuth2</li>
+                    <li>OpenID Connect</li>
+                    <li>SSO/RBAC</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3 class="category-title">AI/ML</h3>
+                <ul class="skill-list">
+                    <li>Deep Learning</li>
+                    <li>OpenAI API</li>
+                    <li>Data visualization</li>
+                    <li>Feature engineering</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-card">
+            <h3 class="degree">B.Tech in Engineering Science</h3>
+            <div class="university">
+                <p class="university-name">Indian Institute of Technology Hyderabad, (IIT-H)</p>
+                <p class="date">Nov 2020 - May 2024</p>
+            </div>
+            <p class="grades">Grade: 7.60</p>
+            <div class="courses">
+                <h4>Relevant Courses:</h4>
+                <p>Data Structures and Algorithms, Database Management Systems, Operating Systems, Computer Networks, Deep Learning, Software Engineering</p>
+            </div>
+        </div>
+    </section>
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                navLinks.classList.remove('active');
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/anji-rontala" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/anji-rontala" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="mailto:anji9980@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p class="footer-text">&copy; 2025 Anji Rontala. All rights reserved.</p>
+</footer>
+
+<script>
+    // Mobile Navigation
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            navLinks.classList.remove('active');
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
